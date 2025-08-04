@@ -1,0 +1,262 @@
+SOLID principles
+S- Single Responsibility Principle
+O- Open/Closed Principle
+L- Liskov Substitution Principle
+I- Interface Segregation Principle
+D- Dependency Inversion Principle
+----------------------------------WHAT EACH PRINCIPLE SAYS?------------------------------------
+
+S --> Single Responsibility Principle
+
+A class should have only 1 reason to change.
+Each class should do only one thing.
+
+Example:
+
+❌ Violation:
+
+        class Report {
+            void generateReport() { /* ... */ }
+            void saveToPDF() { /* ... */ }
+            void emailReport() { /* ... */ }
+        }
+✅ Fix:
+
+        class ReportGenerator {
+            void generateReport() { /* ... */ }
+        }
+
+        class PDFExporter {
+            void saveToPDF(Report report) { /* ... */ }
+        }
+
+        class EmailService {
+            void emailReport(Report report) { /* ... */ }
+        }
+
+Each class now has a single reason to change.
+
+----------------------------------------------------------------------------------------------------
+
+O- Open/Closed Principle
+
+Open for extension and closed for modification
+
+❌ Violation:
+
+            class PaymentProcessor {
+                void pay(String type) {
+                    if (type.equals("CREDIT")) { /* Credit logic */ }
+                    else if (type.equals("PAYPAL")) { /* PayPal logic */ }
+                }
+            }
+
+✅ Fix: Use polymorphism:
+
+            interface Payment {
+                void pay();
+            }
+
+            class CreditCardPayment implements Payment {
+                public void pay() { /* Credit logic */ }
+            }
+
+            class PayPalPayment implements Payment {
+                public void pay() { /* PayPal logic */ }
+            }
+
+            class PaymentProcessor {
+                void processPayment(Payment payment) {
+                    payment.pay();
+                }
+            }
+
+Now we can add new payment types without modifying PaymentProcessor.
+
+----------------------------------------------------------------------------------------------------
+
+L- Liskov Substitution Principle
+
+If class B is a subtype of class A, then we should be able to replace the object of A with B, without breaking the behaviour of the program
+Subclass should extend the capability of parent class not narrow it down.
+Child classes should behave like their parents.
+
+❌ Violation:
+
+        class Bird {
+            void fly() { /* flying logic */ }
+        }
+
+        class Ostrich extends Bird {
+            void fly() { throw new UnsupportedOperationException(); }
+        }
+✅ Fix:
+
+        interface Bird {}
+
+        interface FlyingBird extends Bird {
+            void fly();
+        }
+
+        class Sparrow implements FlyingBird {
+            public void fly() { /* flies */ }
+        }
+
+        class Ostrich implements Bird {
+            // Doesn't fly, but still a bird
+        }
+
+Now Ostrich isn’t forced to implement flying.
+----------------------------------------------------------------------------------------------------
+
+I- Interface Segmented Principle
+
+Interfaces should be such that, clients should not implement unnecessary methods, they do not need
+
+Clients shouldn't depend on interfaces they don't use.
+
+❌ Violation:
+
+            interface Worker {
+                void work();
+                void eat();
+            }
+
+            class Robot implements Worker {
+                public void work() { /* does work */ }
+                public void eat() { /* makes no sense */ }
+            }
+✅ Fix:
+
+            interface Workable {
+                void work();
+            }
+
+            interface Eatable {
+                void eat();
+            }
+
+            class Human implements Workable, Eatable {
+                public void work() { }
+                public void eat() { }
+            }
+
+            class Robot implements Workable {
+                public void work() { }
+            }
+
+Now Robot only implements what it actually needs.
+
+----------------------------------------------------------------------------------------------------
+
+D- Dependency Inversion Principle
+
+Classes should depend on interfaces rather than concrete classes
+
+        class WiredKeyboard implements Keyboard {
+            public void type() {
+                System.out.println("Typing with wired keyboard...");
+            }
+        }
+
+        class WiredMouse implements Mouse {
+            public void click() {
+                System.out.println("Clicking with wired mouse...");
+            }
+        }
+
+        class MacBook {
+            WiredKeyboard keyboard = new WiredKeyboard(); // tightly coupled
+            WiredMouse mouse = new WiredMouse();          // tightly coupled
+
+            void use() {
+                keyboard.type();
+                mouse.click();
+            }
+        }
+🚫 Problem:
+MacBook depends on concrete classes, not interfaces.
+
+You cannot switch to WirelessKeyboard or WirelessMouse without modifying the class.
+
+✅ Solution:
+Step 1: Define Interfaces
+
+            interface Keyboard {
+                void type();
+            }
+
+            interface Mouse {
+                void click();
+            }
+
+Step 2: Implement Concrete Classes
+
+            class WiredKeyboard implements Keyboard {
+                public void type() {
+                    System.out.println("Typing with wired keyboard...");
+                }
+            }
+
+            class WirelessKeyboard implements Keyboard {
+                public void type() {
+                    System.out.println("Typing with wireless keyboard...");
+                }
+            }
+
+            class WiredMouse implements Mouse {
+                public void click() {
+                    System.out.println("Clicking with wired mouse...");
+                }
+            }
+
+            class WirelessMouse implements Mouse {
+                public void click() {
+                    System.out.println("Clicking with wireless mouse...");
+                }
+            }
+
+Step 3: Inject Dependencies into MacBook via Constructor
+
+            class MacBook {
+                private Keyboard keyboard;
+                private Mouse mouse;
+
+                // Constructor injection
+                public MacBook(Keyboard keyboard, Mouse mouse) {
+                    this.keyboard = keyboard;
+                    this.mouse = mouse;
+                }
+
+                public void use() {
+                    keyboard.type();
+                    mouse.click();
+                }
+            }
+
+Step 4: Create the objects as needed in main()
+
+        public class Main {
+            public static void main(String[] args) {
+                // Wired setup
+                Keyboard keyboard = new WiredKeyboard();
+                Mouse mouse = new WiredMouse();
+                MacBook mac1 = new MacBook(keyboard, mouse);
+                mac1.use();
+
+                // Wireless setup
+                Keyboard wirelessKeyboard = new WirelessKeyboard();
+                Mouse wirelessMouse = new WirelessMouse();
+                MacBook mac2 = new MacBook(wirelessKeyboard, wirelessMouse);
+                mac2.use();
+            }
+        }
+
+✅ Benefits of this design:
+
+- Follows DIP: MacBook depends on abstractions (Keyboard, Mouse).
+- Easily switchable components.
+- Testable: You can pass mock implementations for testing.
+- Scalable: New devices can be added without modifying existing classes.
+
+
