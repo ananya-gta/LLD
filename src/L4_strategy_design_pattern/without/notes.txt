@@ -1,1 +1,38 @@
-here the code is duplicated for PassengerVehicle
+here the code is duplicated for OffRoadsVehicle & TransportVehicle
+
+
+           +------------------+
+           |     Strategy     | <--- Interface
+           +------------------+
+                    ▲
+    +----------------+----------------+
+    |                                 |
++-----------+                 +--------------+
+| StrategyA |                 |  StrategyB   | <-- Concrete Strategies
++-----------+                 +--------------+
+
+            +---------------------+
+            |     Context         |  <-- Uses Strategy
+            +---------------------+
+            | - strategy: Strategy|
+            +---------------------+
+            | + setStrategy()     |
+            | + executeStrategy() |
+            +---------------------+
+
+
+Strategy Design Pattern:
+
+1. Encapsulate interchangeable behaviors (algorithms) and use them without altering the objects that use them.
+
+2. Promote Open/Closed Principle: new strategies can be added without modifying the context.
+
+🧱 When to Use
+
+1. When you have many related classes that differ only in their behavior.
+
+2. When you need different variants of an algorithm.
+
+3. To avoid duplicating code across similar classes.
+
+4. When using many conditional statements to select behavior.
