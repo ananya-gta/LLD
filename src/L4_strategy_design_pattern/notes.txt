@@ -1,4 +1,4 @@
-here the code is duplicated for OffRoadsVehicle & TransportVehicle
+without strategy pattern,  the code is duplicated for OffRoadsVehicle & TransportVehicle
 
 
            +------------------+
