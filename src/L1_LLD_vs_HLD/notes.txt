@@ -6,3 +6,6 @@
 | Audience | Architects, leads          | Developers                                                                             |
 | Example  | “We need a search service” | “Use Trie for autocomplete, caching with Redis, classes: SearchManager, IndexBuilder…” |
 ---------------------------------------------------------------------------------------------------------------------------------
+
+LLD is the detailed design of a system that includes class diagrams, functions, data structures, and internal logic.
+It focuses on how the system will be implemented, unlike HLD which focuses on what the system contains.
