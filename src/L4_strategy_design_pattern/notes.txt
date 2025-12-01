@@ -27,12 +27,9 @@ Strategy Design Pattern:
 
 2. Promote Open/Closed Principle: new strategies can be added without modifying the context.
 
-🧱 When to Use
+? When to Use
 
 1. When you have many related classes that differ only in their behavior.
-
 2. When you need different variants of an algorithm.
-
 3. To avoid duplicating code across similar classes.
-
 4. When using many conditional statements to select behavior.

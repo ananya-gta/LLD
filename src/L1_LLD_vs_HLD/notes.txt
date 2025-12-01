@@ -1,0 +1,8 @@
+| Aspect   | HLD (What)                 | LLD (How)                                                                              |
+| -------- | -------------------------- | -------------------------------------------------------------------------------------- |
+| Focus    | Architecture               | Implementation details                                                                 |
+| Level    | Big-picture                | Detailed                                                                               |
+| Includes | Components, services, APIs | Classes, methods, DB schema                                                            |
+| Audience | Architects, leads          | Developers                                                                             |
+| Example  | “We need a search service” | “Use Trie for autocomplete, caching with Redis, classes: SearchManager, IndexBuilder…” |
+---------------------------------------------------------------------------------------------------------------------------------
