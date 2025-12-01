@@ -1,5 +1,2 @@
 # LLD
-# LLD
-# LLD
-# LLD
-# LLD
+Notes for my LLD learnings 
