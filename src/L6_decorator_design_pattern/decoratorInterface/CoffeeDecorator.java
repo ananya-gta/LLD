@@ -3,9 +3,9 @@ package L6_decorator_design_pattern.decoratorInterface;
 import L6_decorator_design_pattern.componentInterface.Coffee;
 
 // wrapper base class
-public abstract class Decorator implements Coffee {
+public abstract class CoffeeDecorator implements Coffee {
     protected Coffee coffee;
-    public Decorator(Coffee decoratedCoffee) {
+    public CoffeeDecorator(Coffee decoratedCoffee) {
         this.coffee = decoratedCoffee;
     }
     @Override

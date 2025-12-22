@@ -1,0 +1,20 @@
+package L6_decorator_design_pattern.decorators;
+
+import L6_decorator_design_pattern.componentInterface.Pizza;
+import L6_decorator_design_pattern.decoratorInterface.PizzaDecorator;
+
+public class MushroomDecorator extends PizzaDecorator {
+    Pizza pizza;
+    public MushroomDecorator(Pizza pizza) {
+        this.pizza = pizza;
+    }
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", mushroom";
+    }
+
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 30.0;
+    }
+}

@@ -1,10 +1,10 @@
 package L6_decorator_design_pattern.decorators;
 
 import L6_decorator_design_pattern.componentInterface.Coffee;
-import L6_decorator_design_pattern.decoratorInterface.Decorator;
+import L6_decorator_design_pattern.decoratorInterface.CoffeeDecorator;
 
-public class MilkDecorator extends Decorator {
-    public MilkDecorator(Coffee coffee) {
+public class MilkCoffeeDecorator extends CoffeeDecorator {
+    public MilkCoffeeDecorator(Coffee coffee) {
         super(coffee);
     }
 
