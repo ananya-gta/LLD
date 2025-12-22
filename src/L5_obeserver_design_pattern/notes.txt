@@ -1,0 +1,2 @@
+Observer design pattern is a behavioral design pattern which maintains a one-to-many dependency between the objects.
+When there is a change in the state of the observable, the observer is automatically notified and updated.

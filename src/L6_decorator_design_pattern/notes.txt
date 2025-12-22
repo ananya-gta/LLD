@@ -1,0 +1,2 @@
+Decorator design pattern is a structural design pattern which dynamically adds a new functionality to an object
+without changing the existing code, by wrapping it with the decorator object.

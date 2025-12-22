@@ -21,7 +21,7 @@ without strategy pattern,  the code is duplicated for OffRoadsVehicle & Transpor
             +---------------------+
 
 
-Strategy Design Pattern:
+Strategy Design Pattern: defines a family of algorithms, puts them in concrete classes and makes them interchangeable at runtime without changing the client code.
 
 1. Encapsulate interchangeable behaviors (algorithms) and use them without altering the objects that use them.
 
