@@ -4,10 +4,10 @@ import L6_decorator_design_pattern.componentInterface.Coffee;
 import L6_decorator_design_pattern.componentInterface.Pizza;
 import L6_decorator_design_pattern.concreteComponent.BasePizza;
 import L6_decorator_design_pattern.concreteComponent.PlainCoffee;
-import L6_decorator_design_pattern.decorators.ExtraCheeseDecorator;
-import L6_decorator_design_pattern.decorators.MilkCoffeeDecorator;
-import L6_decorator_design_pattern.decorators.MushroomDecorator;
-import L6_decorator_design_pattern.decorators.SugarCoffeeDecorator;
+import L6_decorator_design_pattern.concreteDecorators.ExtraCheeseDecorator;
+import L6_decorator_design_pattern.concreteDecorators.MilkCoffeeDecorator;
+import L6_decorator_design_pattern.concreteDecorators.MushroomDecorator;
+import L6_decorator_design_pattern.concreteDecorators.SugarCoffeeDecorator;
 
 public class Client {
     public static void main(String[] args) {

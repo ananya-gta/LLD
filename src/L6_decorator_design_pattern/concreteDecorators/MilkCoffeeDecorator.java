@@ -1,4 +1,4 @@
-package L6_decorator_design_pattern.decorators;
+package L6_decorator_design_pattern.concreteDecorators;
 
 import L6_decorator_design_pattern.componentInterface.Coffee;
 import L6_decorator_design_pattern.decoratorInterface.CoffeeDecorator;
