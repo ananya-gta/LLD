@@ -8,7 +8,7 @@ import L4_strategy_design_pattern.solution.strategy.EVDrive;
 import L4_strategy_design_pattern.solution.strategy.NormalDrive;
 import L4_strategy_design_pattern.solution.strategy.SportsDrive;
 
-public class Main {
+public class Client {
     public static void main(String[] args) {
         // The main method can be used to test the vehicle strategies
         Vehicle vehicle = new SportsVehicle(new SportsDrive());
