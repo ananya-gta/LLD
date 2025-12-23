@@ -1,0 +1,20 @@
+package structural_design_pattern.L6_decorator_design_pattern.concreteDecorators;
+
+import structural_design_pattern.L6_decorator_design_pattern.componentInterface.Pizza;
+import structural_design_pattern.L6_decorator_design_pattern.decoratorInterface.PizzaDecorator;
+
+public class ExtraCheeseDecorator extends PizzaDecorator {
+    Pizza pizza;
+    public ExtraCheeseDecorator(Pizza pizza) {
+        this.pizza = pizza;
+    }
+    @Override
+    public String getDescription() {
+        return pizza.getDescription() + ", extra cheese";
+    }
+
+    @Override
+    public double getCost() {
+        return pizza.getCost() + 20.0;
+    }
+}

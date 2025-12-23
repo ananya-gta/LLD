@@ -1,0 +1,20 @@
+package structural_design_pattern.L6_decorator_design_pattern.decoratorInterface;
+
+import structural_design_pattern.L6_decorator_design_pattern.componentInterface.Coffee;
+
+// wrapper base class
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee coffee;
+    public CoffeeDecorator(Coffee decoratedCoffee) {
+        this.coffee = decoratedCoffee;
+    }
+    @Override
+    public String getDescription() {
+        return coffee.getDescription();
+    }
+
+    @Override
+    public double getCost() {
+        return coffee.getCost();
+    }
+}
