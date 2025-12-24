@@ -15,3 +15,6 @@ Below are the main components of Factory Design Pattern:
 -Concrete Product: The actual object that implements the product interface.
 -Creator (Factory Interface/Abstract Class): Declares the factory method.
 -Concrete Creator (Concrete Factory): Implements the factory method to create specific products.
+
+creator/ factory abstract class that defines a factory method
+concrete factories decide which specific object to create -- what is created
