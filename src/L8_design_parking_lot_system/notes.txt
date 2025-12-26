@@ -1,0 +1,31 @@
+Interview perspective:
+
+interviewer : design a parking lot system
+
+you: here's my understanding,
+
+- The system manages different vehicle types
+- The vehicles enter & exit (only after making the payment)
+- parking space/lot is assigned upon entry and freed upon exit
+- payment must be completed before leaving
+- system handles different vehicle sizes and slot allocations efficiently.
+
+is this the expected flow?
+
+interviewer: yes
+
+you: before proceeding further, I would like to clarify a few requirements
+
+- will there be multiple slot typed based on vehicle size?
+- are we supporting multiple payment methods?
+- should the system track the parking duration ?
+- can there be multiple floors in the parking lot ?
+- any other core requirement ??
+
+interviewer: clarifying requirements
+- the system should support vehicle types (bike, car, truck)
+- has different slot sizes based on vehicle type
+- allows multiple payment methods
+- ensure smooth entry/exit wth accurate parking fee calculation
+
+refer: https://codewitharyan.com/tech-blogs/design-parking-lot

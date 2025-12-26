@@ -5,7 +5,7 @@ import creational_design_pattern.L6_factory_design_pattern.factory_method_patter
 import creational_design_pattern.L6_factory_design_pattern.factory_method_pattern.product.Vehicle;
 
 public class BikeFactory extends VehicleFactory {
-    Vehicle createVehicle() {
+    public Vehicle createVehicle() {
         return new Bike();
     }
 }
